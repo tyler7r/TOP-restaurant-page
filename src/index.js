@@ -28,7 +28,36 @@ content.appendChild(navBar);
 homePage();
 menuPage();
 contactPage();
-foodPage();
-drinkPage();
+
+const homePageContent = document.querySelector('.homePageContent');
+const menuContent = document.querySelector('.menuContent');
+const contactContent = document.querySelector('.contactContent');
+
+window.addEventListener('load', () => {
+    menuContent.classList.add('hidden');
+    contactContent.classList.add('hidden');
+    homePageContent.classList.remove('hidden');
+})
+
+const homeBtnSelect = document.querySelector('#homeBtn');
+homeBtnSelect.addEventListener('click', () => {
+    menuContent.classList.add('hidden');
+    contactContent.classList.add('hidden');
+    homePageContent.classList.remove('hidden');
+})
+
+const menuBtnSelect = document.querySelector('#menuBtn');
+menuBtnSelect.addEventListener('click', () => {
+    homePageContent.classList.add('hidden');
+    contactContent.classList.add('hidden');
+    menuContent.classList.remove('hidden');
+});
+
+const contactBtnSelect = document.querySelector('#contactBtn');
+contactBtnSelect.addEventListener('click', () => {
+    homePageContent.classList.add('hidden');
+    menuContent.classList.add('hidden');
+    contactContent.classList.remove('hidden');
+})
 
 

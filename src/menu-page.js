@@ -1,21 +1,32 @@
+const menuContent = document.createElement('div');
+
 export default function menuPage() {
     const content = document.getElementById('content');
 
+    menuContent.classList.add('menuContent');
+
     const menuNav = document.createElement('div');
     menuNav.classList.add('menuNav');
-
-    const drinksBtn = document.createElement('button');
-    drinksBtn.textContent = 'Drinks';
-    menuNav.appendChild(drinksBtn)
 
     const foodBtn = document.createElement('button');
     foodBtn.textContent = 'Food'
     menuNav.appendChild(foodBtn);
 
-    content.appendChild(menuNav);
+    const drinksBtn = document.createElement('button');
+    drinksBtn.textContent = 'Drinks';
+    menuNav.appendChild(drinksBtn)
+
+    menuContent.appendChild(menuNav);
+
+    content.appendChild(menuContent);
+
+    foodPage();
 }
 
 function drinkPage() {
+    const drinksContent = document.createElement('div');
+    drinksContent.classList.add('drinksContent');
+
     const icedTea = document.createElement('div');
     icedTea.classList.add('icedTea');
     const icedTeaPic = document.createElement('img');
@@ -27,10 +38,15 @@ function drinkPage() {
     icedTeaDescription.textContent = "A friendly reminder that we are in the South. $3"
     icedTea.appendChild(icedTeaDescription);
 
-    content.appendChild(icedTea);
+    drinksContent.appendChild(icedTea);
+
+    menuContent.appendChild(drinksContent);
 }
 
 function foodPage() {
+    const foodContent = document.createElement('div');
+    foodContent.classList.add('foodContent');
+
     const breakfastFood = document.createElement('div');
     breakfastFood.classList.add('breakfastFood');
     breakfastFood.textContent = 'Breakfast';
@@ -46,7 +62,7 @@ function foodPage() {
     allStar.appendChild(allStarDescription);
     breakfastFood.appendChild(allStar);
 
-    content.appendChild(breakfastFood);
-}
+    foodContent.appendChild(breakfastFood);
 
-export { drinkPage, foodPage };
+    menuContent.appendChild(foodContent);
+}
