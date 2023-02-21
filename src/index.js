@@ -7,20 +7,30 @@ const content = document.getElementById('content');
 const navBar = document.createElement('div');
 navBar.classList.add('navBar');
 
+const restaurantTitle = document.createElement('div');
+restaurantTitle.textContent = 'The Atlannuh';
+restaurantTitle.setAttribute('id', 'restaurantTitle');
+navBar.appendChild(restaurantTitle);
+
+const navBtns = document.createElement('div');
+navBtns.classList.add('navBtns');
+
 const homeBtn = document.createElement('button');
 homeBtn.textContent = 'Home';
 homeBtn.setAttribute('id', 'homeBtn');
-navBar.appendChild(homeBtn);
+navBtns.appendChild(homeBtn);
 
 const menuBtn = document.createElement('button');
 menuBtn.textContent = 'Menu';
 menuBtn.setAttribute('id', 'menuBtn');
-navBar.appendChild(menuBtn);
+navBtns.appendChild(menuBtn);
 
 const contactBtn = document.createElement('button');
 contactBtn.textContent = 'Contact';
 contactBtn.setAttribute('id', 'contactBtn');
-navBar.appendChild(contactBtn);
+navBtns.appendChild(contactBtn);
+
+navBar.appendChild(navBtns);
 
 content.appendChild(navBar);
 
