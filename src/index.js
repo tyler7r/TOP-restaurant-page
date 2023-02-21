@@ -1,7 +1,6 @@
 import homePage from './home-page.js';
 import menuPage from './menu-page.js';
 import contactPage from './contact-page.js';
-import { foodPage, drinkPage } from './menu-page.js';
 
 const content = document.getElementById('content');
 

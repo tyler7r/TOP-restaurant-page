@@ -1,30 +1,14 @@
 const menuContent = document.createElement('div');
+const drinksContent = document.createElement('div');
+const foodContent = document.createElement('div');
 
 export default function menuPage() {
-    const content = document.getElementById('content');
-
-    menuContent.classList.add('menuContent');
-
-    const menuNav = document.createElement('div');
-    menuNav.classList.add('menuNav');
-
-    const foodBtn = document.createElement('button');
-    foodBtn.textContent = 'Food'
-    menuNav.appendChild(foodBtn);
-
-    const drinksBtn = document.createElement('button');
-    drinksBtn.textContent = 'Drinks';
-    menuNav.appendChild(drinksBtn)
-
-    menuContent.appendChild(menuNav);
-
-    content.appendChild(menuContent);
-
-    foodPage();
+    createMenuPage();
+    drinksContent.classList.add('hidden');
+    foodContent.classList.remove('hidden');
 }
 
 function drinkPage() {
-    const drinksContent = document.createElement('div');
     drinksContent.classList.add('drinksContent');
 
     const icedTea = document.createElement('div');
@@ -44,7 +28,6 @@ function drinkPage() {
 }
 
 function foodPage() {
-    const foodContent = document.createElement('div');
     foodContent.classList.add('foodContent');
 
     const breakfastFood = document.createElement('div');
@@ -65,4 +48,41 @@ function foodPage() {
     foodContent.appendChild(breakfastFood);
 
     menuContent.appendChild(foodContent);
+}
+
+function createMenuPage() {
+    const content = document.getElementById('content');
+
+    menuContent.classList.add('menuContent');
+
+    const menuNav = document.createElement('div');
+    menuNav.classList.add('menuNav');
+
+    const foodBtn = document.createElement('button');
+    foodBtn.textContent = 'Food'
+    foodBtn.setAttribute('id', 'foodBtn');
+    menuNav.appendChild(foodBtn);
+
+    const drinksBtn = document.createElement('button');
+    drinksBtn.textContent = 'Drinks';
+    drinksBtn.setAttribute('id', 'drinksBtn');
+    menuNav.appendChild(drinksBtn)
+
+    menuContent.appendChild(menuNav);
+
+    content.appendChild(menuContent);
+
+    foodPage();
+    drinkPage();
+
+    const foodBtnSelect = document.querySelector('#foodBtn');
+    foodBtnSelect.addEventListener('click', () => {
+        drinksContent.classList.add('hidden');
+        foodContent.classList.remove('hidden');
+    })
+    const drinksBtnSelect = document.querySelector('#drinksBtn');
+    drinksBtnSelect.addEventListener('click', () => {
+        foodContent.classList.add('hidden');
+        drinksContent.classList.remove('hidden');
+    })
 }
